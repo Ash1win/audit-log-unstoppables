@@ -3,6 +3,7 @@ package com.hansen.auditlog.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hansen.auditlog.model.Auditlog;
 import com.hansen.auditlog.service.AuditlogService;
 
+
+@CrossOrigin(origins = "http://localhost:3001")
 @RestController
 @RequestMapping("/ac")
 public class AuditController {
@@ -64,6 +67,8 @@ public class AuditController {
 			System.out.println(text);
 		}else if(type.equalsIgnoreCase("entity")) {
 			audList = adSrvc.searchByEntityJson(text);
+		}else if(type.equalsIgnoreCase("id")) {
+			audList = adSrvc.searchById(text);
 		}
 		
 		

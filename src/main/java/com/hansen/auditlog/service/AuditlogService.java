@@ -32,4 +32,10 @@ public class AuditlogService {
 		return audList;
 	}
 	
+	public Iterable<Auditlog> searchById(String id) {
+		String query = ""+id+",";
+		Iterable<Auditlog> audList = auditlogDao.findByEntityJsonContaining(query);
+		return audList;
+	}
+	
 }
