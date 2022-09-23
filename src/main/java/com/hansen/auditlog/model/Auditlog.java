@@ -22,24 +22,33 @@ public class Auditlog {
 	private Date modificationDate;
 	
 	
+	//getter-setters
+	
+	//Id
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	//operationType
 	public String getOperationType() {
 		return operationType;
 	}
 	public void setOperationType(String operationType) {
 		this.operationType = operationType;
 	}
+	
+	//entityJson
 	public String getEntityJson() {
 		return entityJson;
 	}
 	public void setEntityJson(String entityJson) {
 		this.entityJson = entityJson;
 	}
+	
+	//modificationDate
 	public Date getModificationDate() {
 		return modificationDate;
 	}
@@ -47,12 +56,12 @@ public class Auditlog {
 		this.modificationDate = modificationDate;
 	}
 	
+	
 //	@PrePersist
 //	private void onCreate() {
 //		java.util.Date date = new java.util.Date();
 //		modificationDate = new Date(date.getTime());
 //	}
-	
 	
 	
 }

@@ -24,6 +24,7 @@ public class AuditController {
 	@Autowired
 	AuditlogService adSrvc;
 	
+	//CREATE
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Object> create(@RequestBody Auditlog inputEntity) {
 		
@@ -42,6 +43,8 @@ public class AuditController {
 		return mpResponse;
 	}
 	
+	
+	//GET ALL
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<Object> getAll() {
 		ResponseEntity<Object> mpResponse;
@@ -57,17 +60,25 @@ public class AuditController {
 		
 	}
 	
+	
+	//GET BY ID, OPERATION, ENTITY
 	@RequestMapping(method = RequestMethod.GET, path = "/search")
 	public ResponseEntity<Object> searchBOT(@RequestParam String text, @RequestParam String type) {
+		
 		ResponseEntity<Object> mpResponse;
+		
 		Iterable<Auditlog> audList=null;
+		
 		System.out.println("type: "+type);
+		
 		if(type.equalsIgnoreCase("operation")) {
 			audList = adSrvc.searchByOperationType(text);
 			System.out.println(text);
+			
 		}else if(type.equalsIgnoreCase("entity")) {
 			audList = adSrvc.searchByEntityJson(text);
-		}else if(type.equalsIgnoreCase("id")) {
+			
+		}else if(type.equalsIgnoreCase("id")){
 			audList = adSrvc.searchById(text);
 		}
 		
