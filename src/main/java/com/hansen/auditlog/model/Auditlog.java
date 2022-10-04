@@ -54,14 +54,6 @@ public class Auditlog {
 	}
 	public void setModificationDate(Date modificationDate) {
 		this.modificationDate = modificationDate;
-	}
-	
-	
-//	@PrePersist
-//	private void onCreate() {
-//		java.util.Date date = new java.util.Date();
-//		modificationDate = new Date(date.getTime());
-//	}
-	
+	}	
 	
 }
