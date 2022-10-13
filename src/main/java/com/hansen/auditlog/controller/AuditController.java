@@ -35,9 +35,9 @@ public class AuditController {
 		Object auditLog = adSrvc.create(inputEntity);
 		
 		if(auditLog != null) {
-			mpResponse = new ResponseEntity<Object>(auditLog, null, HttpStatus.CREATED);
+			mpResponse = new ResponseEntity<Object>(auditLog, null, HttpStatus.OK);
 		}else {
-			mpResponse = new ResponseEntity<Object>(auditLog, null, HttpStatus.CREATED);
+			mpResponse = new ResponseEntity<Object>(auditLog, null, HttpStatus.NOT_ACCEPTABLE);
 		}
 		
 		return mpResponse;
@@ -51,9 +51,9 @@ public class AuditController {
 		Iterable<Auditlog> audList = adSrvc.readAll();
 		
 		if(audList != null) {
-			mpResponse = new ResponseEntity<Object>(audList, null, HttpStatus.CREATED);
+			mpResponse = new ResponseEntity<Object>(audList, null, HttpStatus.OK);
 		}else {
-			mpResponse = new ResponseEntity<Object>(audList, null, HttpStatus.CREATED);
+			mpResponse = new ResponseEntity<Object>(audList, null, HttpStatus.NOT_FOUND);
 		}
 		
 		return mpResponse;
@@ -84,7 +84,7 @@ public class AuditController {
 		
 		
 		if(audList != null) {
-			mpResponse = new ResponseEntity<Object>(audList, null, HttpStatus.CREATED);
+			mpResponse = new ResponseEntity<Object>(audList, null, HttpStatus.OK);
 		}else {
 			mpResponse = new ResponseEntity<Object>(audList, null, HttpStatus.NOT_FOUND);
 		}
